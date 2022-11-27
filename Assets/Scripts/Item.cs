@@ -12,13 +12,13 @@ public class Item : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
     {
         HighlightTable.SetActive(true);
         fire.SetActive(true);
-        Debug.Log("fire");
+        //Debug.Log("fire");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         HighlightTable.SetActive(false);
-        Debug.Log("no fire");
+        //Debug.Log("no fire");
     }
 
     public void OnDrop(PointerEventData eventData)
