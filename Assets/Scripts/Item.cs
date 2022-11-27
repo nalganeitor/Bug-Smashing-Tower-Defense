@@ -6,10 +6,12 @@ using UnityEngine.EventSystems;
 public class Item : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject HighlightTable;
+    [SerializeField] private GameObject fire;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         HighlightTable.SetActive(true);
+        fire.SetActive(true);
         Debug.Log("fire");
     }
 
