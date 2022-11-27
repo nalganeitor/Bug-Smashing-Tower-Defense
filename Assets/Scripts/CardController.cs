@@ -5,7 +5,7 @@ public class CardController : MonoBehaviour
     [HideInInspector] public Vector3 currentMousePosition;
     Camera mainCamera;
 
-    void Start()
+    void Starts()
     {
         mainCamera = Camera.main;
     }
