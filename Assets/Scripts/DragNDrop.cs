@@ -6,7 +6,7 @@ public class DragNDrop : MonoBehaviour
 {
     bool canMove;
     bool dragging;
-    Collider2D collider;
+    new Collider2D collider;
 
     void Start()
     {
