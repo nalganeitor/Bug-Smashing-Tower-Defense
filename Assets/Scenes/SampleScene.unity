@@ -742,6 +742,8 @@ GameObject:
   m_Component:
   - component: {fileID: 278662754}
   - component: {fileID: 278662755}
+  - component: {fileID: 278662757}
+  - component: {fileID: 278662758}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -784,6 +786,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 11400000, guid: 1f57ccd73ec49469995843710955414c, type: 2}
   artwork: {fileID: 860431483}
+  cardName: {fileID: 0}
+  powerText: {fileID: 0}
+  costText: {fileID: 0}
+--- !u!61 &278662757
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278662753}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &278662758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278662753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35067bc220899fe46acfe896c71d9aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighlightTable: {fileID: 0}
+  canvas: {fileID: 715468464}
 --- !u!1 &314695952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1511,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1695,6 +1740,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 11400000, guid: 1f57ccd73ec49469995843710955414c, type: 2}
   artwork: {fileID: 0}
+  cardName: {fileID: 0}
+  powerText: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!1 &1075854933
 GameObject:
   m_ObjectHideFlags: 0
