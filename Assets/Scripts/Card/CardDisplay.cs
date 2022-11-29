@@ -8,6 +8,7 @@ public class CardDisplay : MonoBehaviour
     public CardData card;
     public Sprite artwork;
     public Text cardName;
+    public Text cardDescription;
     public Text powerText;
     public Text costText;
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class CardDisplay : MonoBehaviour
     {
         artwork = card.artwork;
         cardName.text = card.name;
+        cardDescription.text = card.description;
         powerText.text = card.power.ToString();
         costText.text = card.cost.ToString();
     }

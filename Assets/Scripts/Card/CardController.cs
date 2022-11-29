@@ -1,28 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class CardController : MonoBehaviour
 {
-    [HideInInspector] public Vector3 currentMousePosition;
-    Camera mainCamera;
+    private GameObject selectedObject;
+    [SerializeField] private Transform cardOrigin;
+    [SerializeField] private float backToOriginSpeed;
+    [SerializeField] private TextMeshPro cardDescription;
 
-    void Starts()
-    {
-        mainCamera = Camera.main;
-    }
+    Vector3 offset;
 
     void Update()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit[] hits = Physics.RaycastAll(ray);
 
-        foreach (var hit in hits)
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hit.collider.gameObject.layer != LayerMask.NameToLayer("Table")) continue;
-            Debug.DrawLine(start: ray.origin, end: ray.origin + ray.direction * 100, Color.red);
+            Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
 
-            currentMousePosition = hit.point;
+            if (targetObject == GetComponent<Collider2D>())
+            {
+                selectedObject = targetObject.transform.gameObject;
+                offset = selectedObject.transform.position - mousePosition;
+            }
+        }
+        else
+        {
+            transform.position = Vector2.Lerp(transform.position, cardOrigin.position, Time.deltaTime * backToOriginSpeed);
+        }
+        if (selectedObject)
+        {
+            selectedObject.transform.position = mousePosition + offset;
+        }
+        if (Input.GetMouseButtonUp(0) && selectedObject)
+        {
+            selectedObject = null;
+        }
+    }
 
-            break;
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Unit")
+        {
+            cardDescription.text = collision.GetComponent<UnitDisplay>().unit.fireCardDescription;
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                collision.GetComponent<UnitDisplay>().onFire.SetActive(true);
+                Destroy(gameObject);
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Unit")
+        {
+            cardDescription.text = "Hover over an item to see this card's effect.";
         }
     }
 }
