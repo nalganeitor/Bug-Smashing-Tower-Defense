@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d38c579728854d43b1b5e2768d37a02, type: 3}
+  m_Name: Wasps
+  m_EditorClassIdentifier: 
+  waspsIcon: {fileID: -690003452, guid: e1118fe9a0f2be44d960d9efaa046010, type: 3}
+  waspsSound: {fileID: 0}
+  waspsName: Wasps
+  waspsHealth: 1
+  waspsDamage: 1
+  waspsPrefab: {fileID: 7389937685488286950, guid: 8a5508f0da2f57e4f936183259cce905, type: 3}
