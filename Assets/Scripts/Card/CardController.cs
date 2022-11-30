@@ -15,7 +15,26 @@ public class CardController : MonoBehaviour
 
     void Update()
     {
+        DragAndDropCard();
+    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        ActivateCardPower(collision);
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Unit")
+        {
+            cardDescription.text = "Hover over an item to see this card's effect.";
+        }
+    }
+
+
+    void DragAndDropCard()
+    {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
@@ -30,6 +49,7 @@ public class CardController : MonoBehaviour
         }
         else
         {
+            print("wow");
             transform.position = Vector2.Lerp(transform.position, cardOrigin.position, Time.deltaTime * backToOriginSpeed);
         }
         if (selectedObject)
@@ -38,16 +58,15 @@ public class CardController : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && selectedObject)
         {
-            selectedObject = null;
+           selectedObject = null;
         }
     }
 
-
-    private void OnTriggerStay2D(Collider2D collision)
+    void ActivateCardPower(Collider2D collision)
     {
-        if(collision.tag == "Unit")
+        if (collision.tag == "Unit")
         {
-            cardDescription.text = collision.GetComponent<UnitDisplay>().unit.fireCardDescription;
+            GetCardDescription(collision);
 
             if (Input.GetMouseButtonUp(0))
             {
@@ -56,11 +75,16 @@ public class CardController : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+
+    void GetCardDescription(Collider2D collision)
     {
-        if (collision.tag == "Unit")
-        {
-            cardDescription.text = "Hover over an item to see this card's effect.";
-        }
+        if (gameObject.tag == "FireCard")
+            cardDescription.text = collision.GetComponent<UnitDisplay>().unit.fireCardDescription;
+        else if(gameObject.tag == "WaterCard")
+            cardDescription.text = collision.GetComponent<UnitDisplay>().unit.waterCardDescription;
+        else if(gameObject.tag == "EarthCard")
+            cardDescription.text = collision.GetComponent<UnitDisplay>().unit.earthCardDescription;
+        else if(gameObject.tag == "MetalCard")
+            cardDescription.text = collision.GetComponent<UnitDisplay>().unit.metalCardDescription;
     }
 }

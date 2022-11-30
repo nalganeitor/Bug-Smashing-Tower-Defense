@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-    public CardData card;
+    public CardSO card;
     public Sprite artwork;
     public Text cardName;
     public Text cardDescription;
