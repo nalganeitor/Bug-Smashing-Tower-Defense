@@ -19,5 +19,5 @@ MonoBehaviour:
   earthCardDescription: Vines grow from the legs of the chair, trapping insects for
     5 sec.
   metalCardDescription: Reinforces the furniture, doubling the impact
-  artwork: {fileID: 21300000, guid: 6d0d48a1ee3812545b65f47b99491e3c, type: 3}
+  artwork: {fileID: 21300000, guid: 165ac968c28534dbab1ed91f36051900, type: 3}
   cost: 10
