@@ -32,11 +32,35 @@ public class FurnitureController : MonoBehaviour
                 {
                     outline.SetActive(true);
                     isSelected = true;
+                    gridController.showGrid = true;
+
+                    //Activates grid colliders for mouse detection
+                    for (int i = 0; i < gridController.gridSquares.Length; i++)
+                    {
+                        gridController.gridSquares[i].GetComponent<Collider2D>().enabled = true;
+                    }
+
+                    for (int i = 0; i < gridController.nonGridSquares.Length; i++)
+                    {
+                        gridController.nonGridSquares[i].GetComponent<Collider2D>().enabled = true;
+                    }
                 }
                 else
                 {
                     outline.SetActive(false);
                     isSelected = false;
+                    gridController.showGrid = false;
+
+                    //Dectivates grid colliders to stop mouse detection
+                    for (int i = 0; i < gridController.gridSquares.Length; i++)
+                    {
+                        gridController.gridSquares[i].GetComponent<Collider2D>().enabled = false;
+                    }
+
+                    for (int i = 0; i < gridController.nonGridSquares.Length; i++)
+                    {
+                        gridController.nonGridSquares[i].GetComponent<Collider2D>().enabled = false;
+                    }
                 }
             }
         }
@@ -44,7 +68,7 @@ public class FurnitureController : MonoBehaviour
 
         if(isSelected)
         {
-            if(Input.GetMouseButtonDown(0) && gridController.currentGridSquare != null)
+            if(Input.GetMouseButtonDown(0) && gridController.currentGridSquare != null && gridController.currentGridSquare.tag == "Grid")
             {
                 transform.position = gridController.currentGridSquare.transform.position;
             }

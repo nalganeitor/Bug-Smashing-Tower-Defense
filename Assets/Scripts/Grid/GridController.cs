@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-    GameObject[] gridSquares, nonGridSquares;
+    public GameObject[] gridSquares, nonGridSquares;
     public Collider2D currentGridSquare;
-    bool showGrid;
+    public bool showGrid;
 
     private void Awake()
     {
@@ -16,18 +16,24 @@ public class GridController : MonoBehaviour
         for (int i = 0; i < gridSquares.Length; i++)
         {
             gridSquares[i].GetComponent<SpriteRenderer>().enabled = false; //Hides the grid squares
+            gridSquares[i].GetComponent<Collider2D>().enabled = false;
         }
 
         for (int i = 0; i < nonGridSquares.Length; i++)
         {
             nonGridSquares[i].GetComponent<SpriteRenderer>().enabled = false; //Hides the grid squares
+            nonGridSquares[i].GetComponent<Collider2D>().enabled = false;
         }
     }
 
+
     private void Update()
     {
-        MouseGridControl();
+        if(showGrid)
+            MouseGridControl();
     }
+
+
 
     void MouseGridControl()
     {
@@ -50,11 +56,6 @@ public class GridController : MonoBehaviour
         else if(currentGridSquare != null)
         {
             currentGridSquare.GetComponent<SpriteRenderer>().enabled = false;
-        }
-
-        if(gridSquare != null && gridSquare.tag != "Grid")
-        {
-            currentGridSquare = null;
         }
     }
 }
