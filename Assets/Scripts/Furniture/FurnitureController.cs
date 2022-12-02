@@ -5,9 +5,17 @@ using UnityEngine;
 public class FurnitureController : MonoBehaviour
 {
     [SerializeField] private GameObject selectedObject, outline;
-    bool isSelected;
+    [SerializeField] bool isSelected;
+    [SerializeField] Collider2D targetObject;
 
     [SerializeField] GridController gridController;
+
+    LayerMask mask;
+
+    private void Awake()
+    {
+        mask = LayerMask.GetMask("Item");
+    }
 
     private void Update()
     {
@@ -23,55 +31,42 @@ public class FurnitureController : MonoBehaviour
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position
 
-            Collider2D targetObject = Physics2D.OverlapPoint(mousePosition); //checks if mouse position overlaps collider
+            targetObject = Physics2D.OverlapPoint(mousePosition, mask) ; //checks if mouse position overlaps collider
 
             if (targetObject == GetComponent<Collider2D>())
             {
+
                 //Activates outline and marks furniture as selected
                 if (!isSelected)
                 {
                     outline.SetActive(true);
                     isSelected = true;
                     gridController.showGrid = true;
-
-                    //Activates grid colliders for mouse detection
-                    for (int i = 0; i < gridController.gridSquares.Length; i++)
-                    {
-                        gridController.gridSquares[i].GetComponent<Collider2D>().enabled = true;
-                    }
-
-                    for (int i = 0; i < gridController.nonGridSquares.Length; i++)
-                    {
-                        gridController.nonGridSquares[i].GetComponent<Collider2D>().enabled = true;
-                    }
                 }
                 else
                 {
-                    outline.SetActive(false);
-                    isSelected = false;
-                    gridController.showGrid = false;
-
-                    //Dectivates grid colliders to stop mouse detection
-                    for (int i = 0; i < gridController.gridSquares.Length; i++)
-                    {
-                        gridController.gridSquares[i].GetComponent<Collider2D>().enabled = false;
-                    }
-
-                    for (int i = 0; i < gridController.nonGridSquares.Length; i++)
-                    {
-                        gridController.nonGridSquares[i].GetComponent<Collider2D>().enabled = false;
-                    }
+                    DeselectFurniture();
                 }
             }
-        }
 
-
-        if(isSelected)
-        {
-            if(Input.GetMouseButtonDown(0) && gridController.currentGridSquare != null && gridController.currentGridSquare.tag == "Grid")
+            //Deselects furniture if placed in a new grid square
+            if (isSelected)
             {
-                transform.position = gridController.currentGridSquare.transform.position;
+                print("Marco");
+                if (gridController.currentGridSquare != null && gridController.currentGridSquare.tag == "Grid")
+                {
+                    transform.position = gridController.currentGridSquare.transform.position;
+                    DeselectFurniture();
+                }
             }
+
         }
+    }
+
+    private void DeselectFurniture()
+    {
+        outline.SetActive(false);
+        isSelected = false;
+        gridController.showGrid = false;
     }
 }

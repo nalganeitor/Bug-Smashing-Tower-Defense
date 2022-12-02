@@ -4,42 +4,44 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-    public GameObject[] gridSquares, nonGridSquares;
+    public GameObject gridHolder;
     public Collider2D currentGridSquare;
     public bool showGrid;
 
+    LayerMask mask;
+
     private void Awake()
     {
-        gridSquares = GameObject.FindGameObjectsWithTag("Grid");
-        nonGridSquares = GameObject.FindGameObjectsWithTag("NonGrid");
-
-        for (int i = 0; i < gridSquares.Length; i++)
-        {
-            gridSquares[i].GetComponent<SpriteRenderer>().enabled = false; //Hides the grid squares
-            gridSquares[i].GetComponent<Collider2D>().enabled = false;
-        }
-
-        for (int i = 0; i < nonGridSquares.Length; i++)
-        {
-            nonGridSquares[i].GetComponent<SpriteRenderer>().enabled = false; //Hides the grid squares
-            nonGridSquares[i].GetComponent<Collider2D>().enabled = false;
-        }
+        gridHolder.SetActive(true);
+        mask = LayerMask.GetMask("Grid");
     }
 
 
     private void Update()
     {
-        if(showGrid)
+        if (showGrid)
+        {
+            if(!gridHolder.activeInHierarchy)
+                gridHolder.SetActive(true);
+            
             MouseGridControl();
+        }
+        else
+            if (gridHolder.activeInHierarchy)
+        {
+            currentGridSquare = null;
+            gridHolder.SetActive(false);
+        }
     }
 
 
 
     void MouseGridControl()
     {
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position
 
-        Collider2D gridSquare = Physics2D.OverlapPoint(mousePosition); //Checks if mouse position overlaps with a collider
+        Collider2D gridSquare = Physics2D.OverlapPoint(mousePosition, mask); //Checks if mouse position overlaps with a collider
 
 
         if (gridSquare != null && gridSquare.tag == "Grid" || gridSquare != null && gridSquare.tag == "NonGrid") //Checks if there is a grid square detected
@@ -51,6 +53,7 @@ public class GridController : MonoBehaviour
             }
 
             gridSquare.GetComponent<SpriteRenderer>().enabled = true; //Enables sprite renderer of the selected grid square
+
             currentGridSquare = gridSquare;
         }
         else if(currentGridSquare != null)

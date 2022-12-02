@@ -10,8 +10,14 @@ public class CardController : MonoBehaviour
     [SerializeField] private Transform cardOrigin;
     [SerializeField] private float backToOriginSpeed;
     [SerializeField] private TextMeshPro cardDescription;
+    LayerMask mask;
 
     Vector3 offset;
+
+    private void Awake()
+    {
+        mask = LayerMask.GetMask("Card");
+    }
 
     void Update()
     {
@@ -37,7 +43,7 @@ public class CardController : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
+        Collider2D targetObject = Physics2D.OverlapPoint(mousePosition, mask);
 
         if (targetObject == GetComponent<Collider2D>())
         {
