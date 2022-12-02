@@ -6,34 +6,28 @@ public class RoachesManager : MonoBehaviour
 {
     [SerializeField] RoachesSO roaches;
 
-    int health;
-    int damage;
-
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        health = roaches.roachesHealth;
-        damage = roaches.roachesDamage;
+        if (other.gameObject.CompareTag("Girl"))
+        {
+            other.GetComponent<GirlManager>().TakeDamage(roaches.roachesDamage);
+
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int _damage)
     {
-        Click();
+        roaches.roachesCurrentHealth -= _damage;
+
+        if (roaches.roachesCurrentHealth <= 0f)
+        {
+            Die();
+        }
     }
 
-    public void Click()
+    void Die()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            Debug.Log(health);
-            Debug.Log(damage);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            health++;
-            damage++;
-        }
+        Debug.Log("roach dead");
     }
 }

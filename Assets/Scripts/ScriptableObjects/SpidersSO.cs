@@ -6,7 +6,8 @@ public class SpidersSO : ScriptableObject
     public Sprite spidersIcon;
     public AudioClip spidersSound;
     public string spidersName;
-    public int spidersHealth;
+    public int spidersCurrentHealth;
+    public int spidersMaxHealth;
     public int spidersDamage;
     public GameObject spidersPrefab;
 }

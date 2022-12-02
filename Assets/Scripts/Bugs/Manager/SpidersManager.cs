@@ -6,34 +6,30 @@ public class SpidersManager : MonoBehaviour
 {
     [SerializeField] SpidersSO spiders;
 
-    int health;
-    int damage;
-
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        health = spiders.spidersHealth;
-        damage = spiders.spidersDamage;
+        if (other.gameObject.CompareTag("Girl"))
+        {
+            other.GetComponent<GirlManager>().TakeDamage(spiders.spidersDamage);
+
+            Debug.Log("test");
+
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int _damage)
     {
-        Click();
+        spiders.spidersCurrentHealth -= _damage;
+
+        if (spiders.spidersCurrentHealth <= 0f)
+        {
+            Die();
+        }
     }
 
-    public void Click()
+    void Die()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            Debug.Log(health);
-            Debug.Log(damage);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            health++;
-            damage++;
-        }
+        Debug.Log("spider dead");
     }
 }

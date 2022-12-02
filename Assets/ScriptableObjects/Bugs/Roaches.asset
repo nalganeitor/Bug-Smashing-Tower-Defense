@@ -15,6 +15,7 @@ MonoBehaviour:
   roachesIcon: {fileID: 21300000, guid: 826831ceaffeb674d9766cea081de69f, type: 3}
   roachesSound: {fileID: 0}
   roachesName: Roaches
-  roachesHealth: 1
-  roachesDamage: 1
+  roachesCurrentHealth: 0
+  roachesMaxHealth: 35
+  roachesDamage: 20
   roachesPrefab: {fileID: 0}

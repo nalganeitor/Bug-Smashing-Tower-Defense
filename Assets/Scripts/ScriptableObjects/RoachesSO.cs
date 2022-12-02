@@ -6,7 +6,8 @@ public class RoachesSO : ScriptableObject
     public Sprite roachesIcon;
     public AudioClip roachesSound;
     public string roachesName;
-    public int roachesHealth;
+    public int roachesCurrentHealth;
+    public int roachesMaxHealth;
     public int roachesDamage;
     public GameObject roachesPrefab;
 }

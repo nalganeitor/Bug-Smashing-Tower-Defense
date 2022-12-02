@@ -15,6 +15,7 @@ MonoBehaviour:
   antsIcon: {fileID: 21300000, guid: b91eda794d166b64686adcfa4d4255a4, type: 3}
   antsSound: {fileID: 0}
   antsName: Ants
-  antsHealth: 1
-  antsDamage: 1
+  antsCurrentHealth: 0
+  antsMaxHealth: 10
+  antsDamage: 7
   antsPrefab: {fileID: 7561002031968396509, guid: c09cc9d4e201bfa4fb0e214183de3237, type: 3}

@@ -15,6 +15,7 @@ MonoBehaviour:
   waspsIcon: {fileID: -690003452, guid: e1118fe9a0f2be44d960d9efaa046010, type: 3}
   waspsSound: {fileID: 0}
   waspsName: Wasps
-  waspsHealth: 1
-  waspsDamage: 1
+  waspsCurrentHealth: 0
+  waspsMaxHealth: 20
+  waspsDamage: 20
   waspsPrefab: {fileID: 7389937685488286950, guid: 8a5508f0da2f57e4f936183259cce905, type: 3}

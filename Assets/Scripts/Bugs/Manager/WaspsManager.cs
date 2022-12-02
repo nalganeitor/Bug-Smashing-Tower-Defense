@@ -6,35 +6,29 @@ public class WaspsManager : MonoBehaviour
 {
     [SerializeField] WaspsSO wasps;
 
-    int health;
-    int damage;
-
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        health = wasps.waspsHealth;
-        damage = wasps.waspsDamage;
+        if (other.gameObject.CompareTag("Girl"))
+        {
+            other.GetComponent<GirlManager>().TakeDamage(wasps.waspsDamage);
+
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int _damage)
     {
-        Click();
+        wasps.waspsCurrentHealth -= _damage;
+
+        if (wasps.waspsCurrentHealth <= 0f)
+        {
+            Die();
+        }
     }
 
-    public void Click()
+    void Die()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            Debug.Log(health);
-            Debug.Log(damage);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            health++;
-            damage++;
-        }
+        Debug.Log("wasp dead");
     }
 }
 
