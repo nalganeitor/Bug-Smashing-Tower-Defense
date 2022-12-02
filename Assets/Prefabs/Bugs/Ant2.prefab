@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 7244310142853173923}
   - component: {fileID: 372452113200317452}
   - component: {fileID: 7237436289648501582}
+  - component: {fileID: 2758766350022873290}
   - component: {fileID: 3293492165509231728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ant2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -199,6 +200,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.42, y: 0.3}
   m_EdgeRadius: 0
+--- !u!50 &2758766350022873290
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274250921760425441}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &3293492165509231728
 MonoBehaviour:
   m_ObjectHideFlags: 0

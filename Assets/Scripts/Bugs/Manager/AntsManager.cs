@@ -11,7 +11,7 @@ public class AntsManager : MonoBehaviour
         if (other.gameObject.CompareTag("Girl"))
         {
             other.GetComponent<GirlManager>().TakeDamage(ants.antsDamage);
-
+            Debug.Log("a");
             Destroy(this.gameObject);
         }
     }
