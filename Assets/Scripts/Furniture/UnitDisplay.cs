@@ -21,6 +21,6 @@ public class UnitDisplay : MonoBehaviour
     {
         artwork.GetComponent<SpriteRenderer>().sprite = unit.artwork;
 
-        fireCardDescription.text = unit.fireCardDescription;
+        //fireCardDescription.text = unit.fireCardDescription;
     }
 }

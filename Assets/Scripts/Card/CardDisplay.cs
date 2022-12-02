@@ -15,9 +15,9 @@ public class CardDisplay : MonoBehaviour
     void Start()
     {
         artwork = card.artwork;
-        cardName.text = card.name;
-        cardDescription.text = card.description;
-        powerText.text = card.power.ToString();
-        costText.text = card.cost.ToString();
+        //cardName.text = card.name;
+        //cardDescription.text = card.description;
+        //powerText.text = card.power.ToString();
+        //costText.text = card.cost.ToString();
     }
 }
