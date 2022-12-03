@@ -53,7 +53,6 @@ public class GridController : MonoBehaviour
             }
 
             gridSquare.GetComponent<SpriteRenderer>().enabled = true; //Enables sprite renderer of the selected grid square
-
             currentGridSquare = gridSquare;
         }
         else if(currentGridSquare != null)
