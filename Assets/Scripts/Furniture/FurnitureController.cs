@@ -9,16 +9,19 @@ public class FurnitureController : MonoBehaviour
     [SerializeField] Collider2D targetObject;
 
     [SerializeField] GridController gridController;
+    [SerializeField] PauseAndPlayManager pauseAndPlayManager;
 
     LayerMask mask;
 
     private void Awake()
     {
+        pauseAndPlayManager = GameObject.FindWithTag("GameController").GetComponent<PauseAndPlayManager>();
         mask = LayerMask.GetMask("Item");
     }
 
     private void Update()
     {
+        if(!pauseAndPlayManager.gameStart)
         MouseFurnitureControl();
     }
 

@@ -12,6 +12,7 @@ TagManager:
   - Grid
   - NonGrid
   - Girl
+  - Bug
   layers:
   - Default
   - TransparentFX
