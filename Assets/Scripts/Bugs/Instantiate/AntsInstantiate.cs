@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class AntsInstantiate : MonoBehaviour
 {
-    [SerializeField] GameObject prefabPool1;
-    [SerializeField] GameObject prefabPool2;
-    [SerializeField] GameObject prefabPool3;
-    float xpos1 = -191f;
-    float ypos1 = 38f;
-    float zpos1 = 0.7342163f;
-    float xpos2 = -141f;
-    float ypos2 = 53f;
-    float zpos2 = 0.7342163f;
-    float xpos3 = -177f;
-    float ypos3 = 86f;
-    float zpos3 = 0.7342163f;
+    [SerializeField] GameObject antPrefabVariation1;
+    [SerializeField] GameObject antPrefabVariation2;
+    [SerializeField] GameObject antPrefabVariation3;
+
+    Vector3 spawnPos1 = new(-191f, 38f, 0.7342163f);
+    Vector3 spawnPos2 = new(-141f, 53f, 0.7342163f);
+    Vector3 spawnPos3 = new(-177f, 86f, 0.7342163f);
+
     float enemyCount;
 
     void Awake()
@@ -27,13 +23,9 @@ public class AntsInstantiate : MonoBehaviour
     {
         while (enemyCount < 5)
         {
-            var copy1 = prefabPool1;
-            var copy2 = prefabPool2;
-            var copy3 = prefabPool3;
-
-            Instantiate(copy1, new Vector3(xpos1, ypos1, zpos1), Quaternion.identity);
-            Instantiate(copy2, new Vector3(xpos2, ypos2, zpos2), Quaternion.identity);
-            Instantiate(copy3, new Vector3(xpos3, ypos3, zpos3), Quaternion.identity);
+            Instantiate(antPrefabVariation1, spawnPos1, Quaternion.identity);
+            Instantiate(antPrefabVariation2, spawnPos2, Quaternion.identity);
+            Instantiate(antPrefabVariation3, spawnPos3, Quaternion.identity);
             yield return new WaitForSeconds(3);
             enemyCount += 1;
         }
