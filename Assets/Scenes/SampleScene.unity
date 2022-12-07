@@ -548,6 +548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1515614421}
   - component: {fileID: 1515614422}
+  - component: {fileID: 1515614423}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -592,8 +593,20 @@ MonoBehaviour:
   bugHolder: {fileID: 657911376}
   cardHolder: {fileID: 780249674}
   messageButton: {fileID: 1923903279}
-  gameStart: 0
+  gameStarted: 0
   playButton: {fileID: 664125305}
+--- !u!114 &1515614423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515614420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fb54cafcd465841ad2a565429bcdda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1923903279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5171130630401475025, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
@@ -952,6 +965,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515614421}
     m_Modifications:
+    - target: {fileID: 5171130630401475022, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1917.2534
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130630401475022, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1074.5068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130630401475022, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.3733
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130630401475022, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.7467
+      objectReference: {fileID: 0}
     - target: {fileID: 5171130630401475023, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -21,7 +21,7 @@ public class FurnitureController : MonoBehaviour
 
     private void Update()
     {
-        if(!pauseAndPlayManager.gameStart)
+        if(!pauseAndPlayManager.gameStarted)
         MouseFurnitureControl();
     }
 

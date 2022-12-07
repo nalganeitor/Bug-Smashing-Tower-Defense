@@ -4,12 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using C137.Utils;
 using Newtonsoft.Json;
+using C137.Exceptions;
+using System.IO;
+using System.Threading;
+using System.Text;
+using C137.FileManagement;
+using System.IO.Compression;
 
 namespace C137.Unity
 {
     public class C137LibraryPort
     {
-        public static void Log<T>(T @object, bool logToConsole = true, bool jsonSerialize = true)
+        public static void Log<T>(T @object, bool logToConsole = true, bool jsonSerialize = true, bool isError = false)
         {
             string text = "";
 
@@ -27,10 +33,13 @@ namespace C137.Unity
                 else
                     return;
             }
-            if (logToConsole)
+            if (logToConsole && !isError)
                 Debug.Log(text);
+            else
+                if(logToConsole && isError)
+                Debug.LogError(text);
 #pragma warning disable CS8604 // Possible null reference argument.
-            C137.Utils.Logger.WriteLog(text);
+            Utils.Logger.WriteLog(text);
 #pragma warning restore CS8604 // Possible null reference argument.
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
         }

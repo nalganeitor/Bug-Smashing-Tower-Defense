@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab51936c78fb2b64b8de4b0ccab0f8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPool1: {fileID: 5307156028610195965, guid: ecfbc3830adfb4c46b5a9134dbaebbfc, type: 3}
-  prefabPool2: {fileID: 6274250921760425441, guid: 9e87a80585e87304fb9f2dcf39f1eded, type: 3}
-  prefabPool3: {fileID: 8019342249866663325, guid: b6bdef50c6dcc7148b38915efac7c7d8, type: 3}
+  antPrefabVariation1: {fileID: 5307156028610195965, guid: ecfbc3830adfb4c46b5a9134dbaebbfc, type: 3}
+  antPrefabVariation2: {fileID: 6274250921760425441, guid: 9e87a80585e87304fb9f2dcf39f1eded, type: 3}
+  antPrefabVariation3: {fileID: 8019342249866663325, guid: b6bdef50c6dcc7148b38915efac7c7d8, type: 3}
 --- !u!114 &8348384598656485428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8348384598686330329}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -942.04974, y: -159.49185, z: 0.6304147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
