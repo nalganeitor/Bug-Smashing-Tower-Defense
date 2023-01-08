@@ -810,7 +810,7 @@ MonoBehaviour:
   bugHolder: {fileID: 657911376}
   cardHolder: {fileID: 780249674}
   messageButton: {fileID: 1923903279}
-  gameStart: 0
+  gameStarted: 0
   playButton: {fileID: 664125305}
 --- !u!1 &1584382952
 GameObject:
@@ -1437,6 +1437,66 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 386800428}
+    - target: {fileID: 5171130631072088142, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088143, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171130631072088145, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5171130631287017861, guid: efbaa46a60a1a43db84134f4782d1c32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
